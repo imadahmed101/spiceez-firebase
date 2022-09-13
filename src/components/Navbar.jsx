@@ -16,8 +16,8 @@ const Navbar = ({ mode, setMode }) => {
 
         <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center", gap: "5px" }}>
           <MenuItem component="a" href="/">Home</MenuItem>
-          <MenuItem component="a" href="/login">Login</MenuItem>
-          <MenuItem component="a" href="/register">Register</MenuItem>
+          <MenuItem component="a" href="/shop">Shop</MenuItem>
+          <MenuItem component="a" href="/dashboard">Dashboard</MenuItem>
         </Box>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -46,8 +46,8 @@ const Navbar = ({ mode, setMode }) => {
           }}
         >
           <MenuItem component="a" href="/">Home</MenuItem>
-          <MenuItem component="a" href="/login">Login</MenuItem>
-          <MenuItem component="a" href="/register">Register</MenuItem>
+          <MenuItem component="a" href="/shop">Shop</MenuItem>
+          <MenuItem component="a" href="/dashboard">Dashboard</MenuItem>
           <Box textAlign="center">
           <IconButton onClick={(e) => setMode(mode === "light" ? "dark" : "light")} >
           {mode === 'dark' ? <Brightness4 /> : <Brightness4 sx={{ color: "black" }} />}
