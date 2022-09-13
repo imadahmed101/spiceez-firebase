@@ -47,7 +47,7 @@ const Register = () => {
         <TextField label="Email" type="email" sx={{ marginBottom: "15px" }} onChange={(event) => { setEmail(event.target.value) }} />
         <TextField label="Password" type="password" sx={{ marginBottom: "15px" }} onChange={(event) => { setPassword(event.target.value) }} />
         <Button variant="contained" sx={{ marginBottom: "45px" }} onClick={register}>Register</Button>
-        <Link href="/register">Login</Link>
+        <Link href="/login">Login</Link>
         <Typography variant="p">Current User: {user?.email}</Typography>
         <Button variant="outlined" color="otherColor" sx={{ marginBottom: "15px" }} onClick={logout}>Sign Out</Button>
       </Box>
