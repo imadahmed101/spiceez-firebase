@@ -20,8 +20,9 @@ const Featured = () => {
   const renderItems = (items) => {
     return (
       <Grid container spacing={2} sx={{justifyContent: "space-evenly"}}>
-        {items.map((item) => {
-          console.log(item.name)
+        {items.filter((item) =>
+        item.featured.includes("yes"))
+        .map((item) => {
           return (
             <Grid item xs={8} sm={5} md={4}>
             <Item 

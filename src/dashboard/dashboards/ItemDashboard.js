@@ -9,6 +9,7 @@ const ItemDashboard = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
+    const [featured, setFeatured] = useState('');
     const itemRef = collection(db, "item");
 
 
@@ -38,6 +39,15 @@ const ItemDashboard = () => {
 
     }
 
+    const updateFeatured = async (id) => {
+        const userDoc = doc(db, "item", id);
+        const newFields = { featured };
+        await updateDoc(userDoc, newFields);
+        alert('Updated Featured')
+        window.location.reload(false);
+
+    }
+
     const deleteItem = async (id) => {
         const userDoc = doc(db, "item", id);
         await deleteDoc(userDoc);
@@ -61,24 +71,34 @@ const ItemDashboard = () => {
                 {items.map((item) => {
                     return (
                         <div>
-                            {" "}
+                            <hr />
+                            <img src={item.image} height="50px" witdh="50px" />
+                            <br />
                             <Typography variant="p">Name: {item.name}</Typography>
-                            <br/>
+                            <br />
                             <Typography variant="p">Description: {item.description}</Typography>
-                            <br/>
+                            <br />
                             <Typography variant="p">Price: {item.price}</Typography>
-                            <br/>
+                            <br />
+                            <Typography variant="p">Featured: {item.featured}</Typography>
+                            <br />
                             <input placeholder="Update Name..." onChange={(event) => { setName(event.target.value) }} />
                             <Button onClick={() => { updateName(item.id); }}>Update Name</Button>
-                            <br/>
+                            <br />
                             <textarea placeholder="Update Description..." onChange={(event) => { setDescription(event.target.value) }} />
                             <Button onClick={() => { updateDescription(item.id); }}>Update Description</Button>
-                            <br/>
+                            <br />
                             <input placeholder="Update Price..." onChange={(event) => { setPrice(event.target.value) }} />
                             <Button onClick={() => { updatePrice(item.id); }}>Update Price</Button>
-                            <br/>
+                            <br />
+                            <input type="radio" value="yes" onChange={(event) => { setFeatured(event.target.value) }} />
+                            <label>Yes</label>
+                            <input type="radio" value="no" onChange={(event) => { setFeatured(event.target.value) }} />
+                            <label>No</label>
+                            <Button onClick={() => { updateFeatured(item.id); }}>Update Featured</Button>
+                            <br />
                             <Button onClick={() => { deleteItem(item.id) }}>Delete Item</Button>
-                            <br/>
+                            <br />
                         </div>
                     )
                 })}

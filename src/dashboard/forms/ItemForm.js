@@ -13,6 +13,7 @@ const ItemForm = () => {
     const description = form.current[1]?.value;
     const price = form.current[2]?.value;
     const image = form.current[3]?.files[0];
+    const featured = 'no';
 
     const storageRef = ref(storage, `item/${image.name}`);
 
@@ -24,14 +25,16 @@ const ItemForm = () => {
               name,
               description,
               price,
-              image: downloadUrl
+              image: downloadUrl,
+              featured
             })
           }, () => {
             saveItem({
               name,
               description,
               price,
-              image: null
+              image: null,
+              featured
             })
 
           })
@@ -40,7 +43,8 @@ const ItemForm = () => {
           name,
           description,
           price,
-          image: null
+          image: null,
+          featured
         })
 
       }
