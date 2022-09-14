@@ -7,7 +7,7 @@ import ItemModal from './ItemModal'
 import { AddShoppingCart } from '@mui/icons-material'
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
-const Item = () => {
+const Item = ({name, description, price, image}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -17,23 +17,19 @@ const Item = () => {
       <CardActionArea onClick={handleOpen}>
         <CardMedia
           component="img"
-          height="140"
-          image="/two.jpg"
+          height="240px"
+          image={image}
           alt="spice mix"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Nihari Mix
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Freshly Ground Peppers mixed with an array of spices makes this mix a savoury taste. 
-          Add to your meat before cooking and let the heat increase the flavour profile.
+            {name}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <ItemModal open={open} onClose={handleClose} />
+      <ItemModal open={open} onClose={handleClose} name={name} description={description} />
       <CardActions sx={{justifyContent: "space-between"}}>
-        <Typography>$4.00</Typography>
+        <Typography variant="p">${price}</Typography>
         <Button size="small" color="primary">
           <AddShoppingCart />
         </Button>

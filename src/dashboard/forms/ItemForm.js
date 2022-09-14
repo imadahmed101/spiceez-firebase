@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { storage, db } from '../../firebase'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { collection, addDoc } from 'firebase/firestore'
+import { Container } from '@mui/material'
 
 const ItemForm = () => {
   const form = useRef();
@@ -61,7 +62,7 @@ const ItemForm = () => {
 
 
   return (
-    <div>
+    <Container>
 
       <h3>Add Item</h3>
 
@@ -78,7 +79,7 @@ const ItemForm = () => {
 
       </form>
 
-    </div>
+    </Container>
   )
 }
 
