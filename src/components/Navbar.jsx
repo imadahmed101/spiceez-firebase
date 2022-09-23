@@ -21,9 +21,6 @@ const Navbar = ({ mode, setMode }) => {
         </Box>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <IconButton component="a" onClick={(e) => setMode(mode === "light" ? "dark" : "light")} sx={{ display: { xs: "none", sm: "flex" } }} >
-            <Brightness4 sx={{ color: "black" }} />
-          </IconButton>
           <Button href="/login" color="inherit" sx={{ display: { xs: "none", sm: "flex" } }}>Login</Button>
           <IconButton href="/cart">
             <ShoppingCart sx={{color: "black"}}/>
@@ -49,9 +46,6 @@ const Navbar = ({ mode, setMode }) => {
           <MenuItem component="a" href="/shop">Shop</MenuItem>
           <MenuItem component="a" href="/dashboard">Dashboard</MenuItem>
           <Box textAlign="center">
-          <IconButton onClick={(e) => setMode(mode === "light" ? "dark" : "light")} >
-          {mode === 'dark' ? <Brightness4 /> : <Brightness4 sx={{ color: "black" }} />}
-          </IconButton>
           </Box>
           <MenuItem component="a" href="/login" sx={{ bgcolor: "gray", borderRadius: "25px" }}>Login</MenuItem>
         </Menu>
@@ -61,3 +55,12 @@ const Navbar = ({ mode, setMode }) => {
   );
 }
 export default Navbar;
+/*<IconButton onClick={(e) => setMode(mode === "light" ? "dark" : "light")} >
+{mode === 'dark' ? <Brightness4 /> : <Brightness4 sx={{ color: "black" }} />}
+</IconButton>
+
+
+<IconButton component="a" onClick={(e) => setMode(mode === "light" ? "dark" : "light")} sx={{ display: { xs: "none", sm: "flex" } }} >
+  <Brightness4 sx={{ color: "black" }} />
+</IconButton>
+*/

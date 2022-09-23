@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../firebase'
-import { Box, Typography, Grid } from '@mui/material'
+import { Box, Typography, Grid, Container } from '@mui/material'
 import Item from './Item'
 
 const Featured = () => {
@@ -40,9 +40,13 @@ const Featured = () => {
   }
 
   return (
-    <Box sx={{ background: `radial-gradient(at top left, #ff0000 0%, #700000 100%)`, height: "auto", minHeight: "450px" }}>
+    <Box>
+    <Container sx={{ background: `radial-gradient(at top left, #ff0000 0%, #700000 100%)`, height: "auto", minHeight: "55px", marginBottom: "30px", textAlign: "center", borderRadious: "25px"}}>
       <Typography variant="h3" sx={{ color: "white" }}>Featured</Typography>
+      </Container>
+      <Box>
         {renderItems(items)}
+    </Box>
     </Box>
   )
 }

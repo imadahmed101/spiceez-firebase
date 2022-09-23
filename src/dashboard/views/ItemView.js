@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../../firebase'
 import { Container, Grid, Typography, Button, Box } from '@mui/material';
+import Item from '../../components/Item'
 
 const ItemView = () => {
   const [items, setItems] = useState([]);
@@ -17,29 +18,34 @@ const ItemView = () => {
 
   const renderItems = (items) => {
     return (
-      <Box>
+      <Grid container spacing={2} sx={{justifyContent: "space-evenly"}}>
         {items.map((item) => {
           return (
-            <Box sx={{ background: "radial-gradient(at top left, rgb(81, 89, 102) 0%, rgb(49, 50, 59) 100%)", height: "100vh", minHeight: "650px", display: "flex", alignItems: "center", textAlign: "center", color: "white" }}>
-              <Container>
-                <Typography variant="h3">{item.name}</Typography>
-                <Container>
-                  <img src={item.image} height="350px" width="350px" />
-                </Container>
-                <Typography variant="h6">{item.description}</Typography>
-                <Typography variant="h6">${item.price}</Typography>
-              </Container>
-            </Box >
+            <Grid item xs={8} sm={6} md={5} lg={4} xl={3}>
+
+<Item 
+            name={item.name}
+            image={item.image}
+            description={item.description}
+            price={item.price}
+            />
+            </Grid >
           )
         })
         }
-      </Box >
+      </Grid >
     )
   }
 
   return (
+
     <Box>
-      {renderItems(items)}
+    <Box sx={{ background: `radial-gradient(at top left, #ff0000 0%, #700000 100%)`, height: "auto", minHeight: "55px", marginBottom: "30px", textAlign: "center", borderRadious: "25px"}}>
+      <Typography variant="h3" sx={{ color: "white" }}>Shop</Typography>
+      </Box>
+      <Container>
+        {renderItems(items)}
+      </Container>
     </Box>
   )
 }
