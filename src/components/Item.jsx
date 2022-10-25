@@ -8,10 +8,18 @@ import { AddShoppingCart } from '@mui/icons-material'
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Cart from './Cart';
 
-const Item = ({name, description, price, image}) => {
+const Item = ({handleClick, name, description, price, image}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [cart, setCart] = useState([])
+
+  const addToCart = () => {
+    console.log(name, price);
+    setCart([...cart,name])
+    console.log(cart)
+
+  }
 
   return (
     <Card sx={{ maxWidth: 345}}>
@@ -31,7 +39,7 @@ const Item = ({name, description, price, image}) => {
       <ItemModal open={open} onClose={handleClose} name={name} description={description} />
       <CardActions sx={{justifyContent: "space-between"}}>
         <Typography variant="p">${price}</Typography>
-        <Button size="small" color="primary" onClick={<Cart/>}>
+        <Button size="small" color="primary" onClick={()=> handleClick}>
           <AddShoppingCart />
         </Button>
       </CardActions>

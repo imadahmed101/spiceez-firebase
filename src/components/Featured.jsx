@@ -44,9 +44,9 @@ const Featured = () => {
     <Container sx={{ background: `radial-gradient(at top left, #ff0000 0%, #700000 100%)`, height: "auto", minHeight: "55px", marginBottom: "30px", textAlign: "center", borderRadious: "25px"}}>
       <Typography variant="h3" sx={{ color: "white" }}>Featured</Typography>
       </Container>
-      <Box>
+      <Container>
         {renderItems(items)}
-    </Box>
+    </Container>
     </Box>
   )
 }

@@ -1,32 +1,26 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Shop from './pages/Shop'
-import Cart from './pages/Cart'
-import Dashboard from './pages/Dashboard'
-import Error from './pages/Error'
-import Navbar from './components/Navbar'
-import { ThemeProvider } from '@mui/material/styles'
-import { theme } from './theme'
+import {useEffect, useState} from 'react'
+import {Box, Container, Button} from '@mui/material'
+
 
 function App() {
+
   return (
-    <ThemeProvider theme={theme}>
-    <BrowserRouter>
-    <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
-    </ThemeProvider>
-  );
+    <Box>
+    <Container style={{justifyContent: "space-between"}}>
+      <div>
+      <p>Willis & Monroe Associates</p>
+      </div>
+      <div style={{display: "flex", justifyContent: "space between"}}>
+      <p>home</p>
+      <p>about</p>
+      <p>services</p>
+      <p>contact</p>
+      <p>quote</p>
+      </div>
+    </Container>
+
+    </Box>
+  )
 }
 
 export default App;

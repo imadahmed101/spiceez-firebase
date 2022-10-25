@@ -4,11 +4,13 @@ import { collection, getDocs, updateDoc, doc, deleteDoc } from 'firebase/firesto
 import { Button, Container, Box, Typography } from "@mui/material"
 
 
-const Cart = () => {
-    const [cart, setCart] = useState([]);
-    const [name, setName] = useState('');
-    const [price, setPrice] = useState('');
-    const cartRef = collection(db, "cart");
+const Cart = ({ cart, setCart }) => {
+
+
+    //const [cart, setCart] = useState([]);
+    //const [name, setName] = useState('');
+    //const [price, setPrice] = useState('');
+    //const cartRef = collection(db, "cart");
 
 /*
     const updateName = async (id) => {
@@ -63,6 +65,7 @@ const Cart = () => {
         getCart();
     }, []);
 */
+
     return (
         <Container sx={{ border: "1px solid" }}>
             <Box sx={{ m: "100px" }}>
@@ -90,3 +93,10 @@ export default Cart
                     )
                 })}
 */
+    /*
+    {cart.map((item) => (
+        <div>
+            {item.name}
+        </div>
+    ))}
+    */
